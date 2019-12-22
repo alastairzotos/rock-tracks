@@ -14,7 +14,7 @@ The application is built with Typescript and uses a client/server structure.
 
 ### Server
 
-The server uses an Express server to deliver pages and requests for tracks.
+The server uses an Express server to deliver pages and respond to requests for tracks.
 
 There are three endpoints:
 * `/get-tracks` gets a list of 50 rock tracks
