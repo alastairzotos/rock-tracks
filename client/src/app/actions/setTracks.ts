@@ -1,4 +1,4 @@
-import { createAction } from '../../core/actions';
+import { createAction } from '../../core';
 import { IActionTypes } from './types';
 import { ITrack } from '../models';
 

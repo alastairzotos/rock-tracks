@@ -1,5 +1,5 @@
 import { ITrack } from "../models";
-import { IAction } from "../../core/actions";
+import { IAction } from "../../core";
 import { IActionTypes, ISetTracksPayload } from "../actions";
 
 export interface IRockTracksState {
