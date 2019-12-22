@@ -43,5 +43,8 @@ export const rockTracksReducer = (state: IRockTracksState = INITIAL_STATE, actio
                 tracks: null,
                 error: true
             };
+
+        default:
+            return state;
     }
 };

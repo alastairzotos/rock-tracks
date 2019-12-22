@@ -2280,6 +2280,22 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar IA
 
 /***/ }),
 
+/***/ "./src/app/components/TrackListing.tsx":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar React = __webpack_require__(\"./node_modules/react/index.js\");\nexports.TrackListing = function (_a) {\n    var track = _a.track;\n    return (React.createElement(\"div\", { style: { border: \"1px solid black\", padding: 10 } },\n        React.createElement(\"h3\", null, track.trackName),\n        React.createElement(\"p\", null,\n            \"By \",\n            track.artistName),\n        React.createElement(\"p\", null,\n            \"Price: $\",\n            track.trackPrice),\n        React.createElement(\"p\", null,\n            \"Artwork URL: \",\n            track.artworkUrl100)));\n};\n\n\n//# sourceURL=webpack:///./src/app/components/TrackListing.tsx?");
+
+/***/ }),
+
+/***/ "./src/app/components/index.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nfunction __export(m) {\n    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];\n}\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__export(__webpack_require__(\"./src/app/components/TrackListing.tsx\"));\n\n\n//# sourceURL=webpack:///./src/app/components/index.ts?");
+
+/***/ }),
+
 /***/ "./src/app/epics/fetchTracksEpic.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2308,7 +2324,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar ep
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar React = __webpack_require__(\"./node_modules/react/index.js\");\nvar HomePage = function (_a) {\n    return (React.createElement(React.Fragment, null,\n        React.createElement(\"h1\", null, \"Home page\")));\n};\nexports.default = HomePage;\n\n\n//# sourceURL=webpack:///./src/app/pages/HomePage.tsx?");
+eval("\nvar __assign = (this && this.__assign) || function () {\n    __assign = Object.assign || function(t) {\n        for (var s, i = 1, n = arguments.length; i < n; i++) {\n            s = arguments[i];\n            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))\n                t[p] = s[p];\n        }\n        return t;\n    };\n    return __assign.apply(this, arguments);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar React = __webpack_require__(\"./node_modules/react/index.js\");\nvar react_redux_1 = __webpack_require__(\"./node_modules/react-redux/es/index.js\");\nvar actions_1 = __webpack_require__(\"./src/app/actions/index.ts\");\nvar components_1 = __webpack_require__(\"./src/app/components/index.ts\");\nvar mapStateToProps = function (state, ownProps) { return (__assign(__assign({}, ownProps), { loading: state.loading, error: state.error, tracks: state.tracks })); };\nvar mapPropsToDispatch = function (dispatch) { return ({\n    fetchTracks: function () { return dispatch(actions_1.fetchTracks()); },\n}); };\nvar HomePage = function (_a) {\n    var loading = _a.loading, error = _a.error, tracks = _a.tracks, fetchTracks = _a.fetchTracks;\n    React.useEffect(function () {\n        fetchTracks();\n    }, [fetchTracks]);\n    return (React.createElement(React.Fragment, null,\n        React.createElement(\"h1\", null, \"Rock Tracks\"),\n        loading && React.createElement(\"p\", null, \"Loading...\"),\n        error && React.createElement(\"p\", null, \"There was an error loading the tracks\"),\n        tracks && (tracks.map(function (track) {\n            return React.createElement(components_1.TrackListing, { key: track.trackId, track: track });\n        }))));\n};\nexports.default = react_redux_1.connect(mapStateToProps, mapPropsToDispatch)(HomePage);\n\n\n//# sourceURL=webpack:///./src/app/pages/HomePage.tsx?");
 
 /***/ }),
 
@@ -2332,7 +2348,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar ro
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __assign = (this && this.__assign) || function () {\n    __assign = Object.assign || function(t) {\n        for (var s, i = 1, n = arguments.length; i < n; i++) {\n            s = arguments[i];\n            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))\n                t[p] = s[p];\n        }\n        return t;\n    };\n    return __assign.apply(this, arguments);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar actions_1 = __webpack_require__(\"./src/app/actions/index.ts\");\nvar INITIAL_STATE = {\n    tracks: null,\n    currentTrack: null,\n    error: false,\n    loading: false\n};\nexports.rockTracksReducer = function (state, action) {\n    if (state === void 0) { state = INITIAL_STATE; }\n    switch (action.type) {\n        case actions_1.IActionTypes.FetchTracks:\n            return __assign(__assign({}, state), { currentTrack: null, error: false, loading: true });\n        case actions_1.IActionTypes.SetTracks:\n            return __assign(__assign({}, state), { currentTrack: null, error: false, loading: false, tracks: action.payload.tracks });\n        case actions_1.IActionTypes.SetError:\n            return __assign(__assign({}, state), { currentTrack: null, loading: null, tracks: null, error: true });\n    }\n};\n\n\n//# sourceURL=webpack:///./src/app/reducers/rockTracksReducer.ts?");
+eval("\nvar __assign = (this && this.__assign) || function () {\n    __assign = Object.assign || function(t) {\n        for (var s, i = 1, n = arguments.length; i < n; i++) {\n            s = arguments[i];\n            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))\n                t[p] = s[p];\n        }\n        return t;\n    };\n    return __assign.apply(this, arguments);\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar actions_1 = __webpack_require__(\"./src/app/actions/index.ts\");\nvar INITIAL_STATE = {\n    tracks: null,\n    currentTrack: null,\n    error: false,\n    loading: false\n};\nexports.rockTracksReducer = function (state, action) {\n    if (state === void 0) { state = INITIAL_STATE; }\n    switch (action.type) {\n        case actions_1.IActionTypes.FetchTracks:\n            return __assign(__assign({}, state), { currentTrack: null, error: false, loading: true });\n        case actions_1.IActionTypes.SetTracks:\n            return __assign(__assign({}, state), { currentTrack: null, error: false, loading: false, tracks: action.payload.tracks });\n        case actions_1.IActionTypes.SetError:\n            return __assign(__assign({}, state), { currentTrack: null, loading: null, tracks: null, error: true });\n        default:\n            return state;\n    }\n};\n\n\n//# sourceURL=webpack:///./src/app/reducers/rockTracksReducer.ts?");
 
 /***/ }),
 
