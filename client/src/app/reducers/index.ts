@@ -1,1 +1,3 @@
-export * from './rockTracksReducer';
+import { rockTracksReducer } from './rockTracksReducer';
+
+export default rockTracksReducer;
