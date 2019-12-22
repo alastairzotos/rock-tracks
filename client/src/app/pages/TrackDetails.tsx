@@ -4,8 +4,10 @@ import { connect } from 'react-redux';
 
 import { ITrack } from '../models';
 import { IRockTracksState } from '../reducers/rockTracksReducer';
-import { IAction } from '../../core';
 import { fetchCurrentTrack } from '../actions';
+import { millisToTime, formatDate } from '../utils';
+
+import { IAction } from '../../core';
 
 export interface ITrackDetailsProps {
     track: ITrack;
@@ -45,7 +47,15 @@ const TrackDetailsPage: React.SFC<ITrackDetailsProps> = ({
             {error && <p>There was a problem loading the track</p>}
 
             {track && (
-                <pre>{JSON.stringify(track, null, 4)}</pre>
+                <>
+                    <h3>{track.trackName}</h3>
+                    <p>By {track.artistName}</p>
+                    <p>Price: ${track.trackPrice}</p>
+                    <p>Duration: {millisToTime(track.trackTimeMillis)}</p>
+                    <p>Release date: {formatDate(track.releaseDate)}</p>
+                    <p><a href={track.artworkUrl100} target="_blank">Artwork</a></p>
+                    <p><a href={track.trackViewUrl} target="_blank">More details</a></p>
+                </>
             )}
         </div>
     )

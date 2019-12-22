@@ -15,7 +15,7 @@ export const TrackListing: React.SFC<ITrackListingProps> = ({
             <Link to={`/track/${track.trackId}`}><h3>{track.trackName}</h3></Link>
             <p>By {track.artistName}</p>
             <p>Price: ${track.trackPrice}</p>
-            <p>Artwork URL: {track.artworkUrl100}</p>
+            <p><a href={track.artworkUrl100} target="_blank">Artwork</a></p>
         </div>
     );
 };

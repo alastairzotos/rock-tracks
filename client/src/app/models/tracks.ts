@@ -6,4 +6,5 @@ export interface ITrack {
     trackTimeMillis: number;
     releaseDate: string;
     artworkUrl100: string;
+    trackViewUrl: string;
 }
