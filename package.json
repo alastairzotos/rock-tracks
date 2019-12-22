@@ -4,6 +4,7 @@
   "description": "",
   "main": "server/build/main.js",
   "scripts": {
+    "start": "./start.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

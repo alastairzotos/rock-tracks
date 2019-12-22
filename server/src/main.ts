@@ -3,6 +3,8 @@ import * as express from 'express';
 import fetch from 'node-fetch';
 
 const start = () => {
+    const PORT = 9001;
+
     const app = express();
 
     app.use(express.static(path.resolve(__dirname, '..', 'public')));
@@ -38,7 +40,9 @@ const start = () => {
         res.sendFile(path.resolve(__dirname, '..', 'public', 'index.html'));
     });
 
-    app.listen(9001);
+    app.listen(PORT, () => {
+        console.log(`Page is live on http://localhost:${PORT}`);
+    });
 };
 
 start();

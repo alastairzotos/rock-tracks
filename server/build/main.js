@@ -40,6 +40,7 @@ var path = require("path");
 var express = require("express");
 var node_fetch_1 = require("node-fetch");
 var start = function () {
+    var PORT = 9001;
     var app = express();
     app.use(express.static(path.resolve(__dirname, '..', 'public')));
     app.use(express.static(path.resolve(__dirname, '..', '..', 'client', 'build')));
@@ -95,6 +96,8 @@ var start = function () {
     app.get('*', function (req, res) {
         res.sendFile(path.resolve(__dirname, '..', 'public', 'index.html'));
     });
-    app.listen(9001);
+    app.listen(PORT, function () {
+        console.log("Page is live on http://localhost:" + PORT);
+    });
 };
 start();
