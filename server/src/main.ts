@@ -10,7 +10,7 @@ const start = () => {
     app.use(express.static(path.resolve(__dirname, '..', 'public')));
     app.use(express.static(path.resolve(__dirname, '..', '..', 'client', 'build')));
 
-    app.get('/tracks', async(req, res) => {
+    app.get('/get-tracks', async(req, res) => {
         try {
             const response = await fetch('https://itunes.apple.com/search?term=rock&media=music');
             const tracks = await response.json();

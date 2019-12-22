@@ -11,7 +11,7 @@ export const fetchTracksEpic: Epic = (action$) =>
         switchMap(() => 
             fetch$({
                 method: 'GET',
-                url: '/tracks',
+                url: '/get-tracks',
             }).pipe(
                 switchMap((res) => of(setTracks(res.body.results))),
                 catchError(() => of(setError())),

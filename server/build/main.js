@@ -44,7 +44,7 @@ var start = function () {
     var app = express();
     app.use(express.static(path.resolve(__dirname, '..', 'public')));
     app.use(express.static(path.resolve(__dirname, '..', '..', 'client', 'build')));
-    app.get('/tracks', function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+    app.get('/get-tracks', function (req, res) { return __awaiter(_this, void 0, void 0, function () {
         var response, tracks, _a;
         return __generator(this, function (_b) {
             switch (_b.label) {
