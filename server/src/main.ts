@@ -13,6 +13,8 @@ const start = () => {
             const response = await fetch('https://itunes.apple.com/search?term=rock&media=music');
             const tracks = await response.json();
 
+            console.log(tracks);
+
             res.json(tracks);
         } catch {
             res.status(500).end();

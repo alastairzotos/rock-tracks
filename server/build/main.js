@@ -55,6 +55,7 @@ var start = function () {
                     return [4 /*yield*/, response.json()];
                 case 2:
                     tracks = _b.sent();
+                    console.log(tracks);
                     res.json(tracks);
                     return [3 /*break*/, 4];
                 case 3:
