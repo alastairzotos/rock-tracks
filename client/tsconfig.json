@@ -1,0 +1,18 @@
+{
+	"exclude": [
+		"build"
+	],
+	"include": [
+		"src"
+	],
+	"compilerOptions": {
+		"moduleResolution": "node",
+		"target": "es5",
+		"noImplicitAny": false,
+		"outDir": "build",
+		"rootDir": "src",
+		"sourceMap": true,
+        "declaration": false,
+        "jsx": "react"
+	}
+}
