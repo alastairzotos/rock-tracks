@@ -1,9 +1,11 @@
-import epics from './epics';
-import reducers from './reducers';
+import epic from './epics';
+import reducer from './reducers';
+import pages from './pages';
 
 import { IModule } from '../core';
 
 export default {
-    epic: epics,
-    reducer: reducers
+    epic,
+    reducer,
+    pages
 } as IModule;
