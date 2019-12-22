@@ -13,10 +13,23 @@ const start = () => {
             const response = await fetch('https://itunes.apple.com/search?term=rock&media=music');
             const tracks = await response.json();
 
-            console.log(tracks);
-
             res.json(tracks);
         } catch {
+            res.status(500).end();
+        }
+    });
+
+    app.get('/get-track', async(req, res) => {
+        try {
+            const data = await fetch(`https://itunes.apple.com/lookup?id=${req.query.id}`);
+            const track = await data.json();
+
+            if (track.results && track.results.length > 0) {
+                res.status(200).json(track.results[0]);
+            } else {
+                res.sendStatus(404);
+            }
+        } catch (e) {
             res.status(500).end();
         }
     });

@@ -55,11 +55,37 @@ var start = function () {
                     return [4 /*yield*/, response.json()];
                 case 2:
                     tracks = _b.sent();
-                    console.log(tracks);
                     res.json(tracks);
                     return [3 /*break*/, 4];
                 case 3:
                     _a = _b.sent();
+                    res.status(500).end();
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    }); });
+    app.get('/get-track', function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+        var data, track, e_1;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 3, , 4]);
+                    return [4 /*yield*/, node_fetch_1.default("https://itunes.apple.com/lookup?id=" + req.query.id)];
+                case 1:
+                    data = _a.sent();
+                    return [4 /*yield*/, data.json()];
+                case 2:
+                    track = _a.sent();
+                    if (track.results && track.results.length > 0) {
+                        res.status(200).json(track.results[0]);
+                    }
+                    else {
+                        res.sendStatus(404);
+                    }
+                    return [3 /*break*/, 4];
+                case 3:
+                    e_1 = _a.sent();
                     res.status(500).end();
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];

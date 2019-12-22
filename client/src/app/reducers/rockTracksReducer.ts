@@ -1,10 +1,11 @@
 import { ITrack } from "../models";
 import { IAction } from "../../core";
 import { IActionTypes, ISetTracksPayload } from "../actions";
+import { ISetCurrentTrackPayload } from "../actions/setCurrentTrack";
 
 export interface IRockTracksState {
     tracks: ITrack[] | null;
-    currentTrack: ITrack[] | null;
+    currentTrack: ITrack | null;
     loading: boolean;
     error: boolean;
 }
@@ -26,6 +27,14 @@ export const rockTracksReducer = (state: IRockTracksState = INITIAL_STATE, actio
                 loading: true
             };
 
+        case IActionTypes.FetchCurrentTrack:
+                return {
+                    ...state,
+                    tracks: null,
+                    error: false,
+                    loading: true
+                };
+
         case IActionTypes.SetTracks:
             return {
                 ...state,
@@ -34,6 +43,15 @@ export const rockTracksReducer = (state: IRockTracksState = INITIAL_STATE, actio
                 loading: false,
                 tracks: (<ISetTracksPayload>action.payload).tracks
             };
+
+        case IActionTypes.SetCurrentTrack:
+                return {
+                    ...state,
+                    tracks: null,
+                    currentTrack: (<ISetCurrentTrackPayload>action.payload).track,
+                    error: false,
+                    loading: false,
+                };
 
         case IActionTypes.SetError: 
             return {

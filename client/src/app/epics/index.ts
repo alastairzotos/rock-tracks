@@ -1,3 +1,9 @@
-import { fetchTracksEpic } from './fetchTracksEpic';
+import { combineEpics } from 'redux-observable';
 
-export default fetchTracksEpic;
+import { fetchTracksEpic } from './fetchTracksEpic';
+import { fetchCurrentTrackEpic } from './fetchCurrentTrackEpic';
+
+export default combineEpics(
+    fetchTracksEpic,
+    fetchCurrentTrackEpic,
+);
